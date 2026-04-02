@@ -171,7 +171,7 @@ The production system additionally includes:
 - Multi-namespace production routing
 
 Interested in the production version?
-→ [Contact KI Force](https://ki-force.de/contact)
+→ [Contact KI Force](https://ki-force.de)
 
 ---
 
