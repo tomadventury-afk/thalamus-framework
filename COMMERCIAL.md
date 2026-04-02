@@ -67,7 +67,7 @@ The production version is designed for:
 **Thomas Less** — Entrepreneur & Chief Vision Officer, KI Force
 Munich, Germany
 
-- Email: info@ki-force.de
+- Email: tom@adventury.de
 - Web: [ki-force.de](https://ki-force.de)
 - LinkedIn: [Thomas Less](https://www.linkedin.com/in/thomas-less-49263454/)
 - GitHub: [tomadventury-afk](https://github.com/tomadventury-afk)
