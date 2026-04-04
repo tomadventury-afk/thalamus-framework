@@ -3,3 +3,20 @@ data/
 *.tmp
 .env
 .DS_Store
+
+# Secrets — NEVER commit
+secrets/
+*.key
+*.pem
+*.p12
+
+# Runtime state & logs
+state/
+signals/
+ice/ice.log
+ice/patrol-state.json
+*.log
+
+# Build artifacts
+dist/
+.next/

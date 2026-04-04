@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "max_chain_depth": 3,
+  "cooldown_ms": 30000,
+  "hourly_budgets": {
+    "lev": 60,
+    "levbot": 30,
+    "nestdev": 5,
+    "patricia": 5
+  },
+  "allowed_routes": {
+    "lev": [
+      "levbot",
+      "nestdev",
+      "patricia"
+    ],
+    "levbot": [
+      "lev",
+      "nestdev",
+      "patricia"
+    ],
+    "nestdev": [
+      "lev",
+      "levbot"
+    ],
+    "patricia": [
+      "lev",
+      "levbot"
+    ]
+  }
+}

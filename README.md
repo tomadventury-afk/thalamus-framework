@@ -116,15 +116,32 @@ and the debugger fixed it — autonomously.
 
 ---
 
+## Recent Extensions (2026-04)
+
+Since the initial release, the production system has grown significantly:
+
+| Extension | What it adds |
+|-----------|-------------|
+| **Queue-Fix** | Retry-limit per escalation, `queued` state instead of overload-drop, queue flush on agent exit |
+| **Heartbeat System** | `heartbeat-check.ts` monitors all agents every 60s via cron, wakes stuck agents, validates `laws.json` integrity with hash |
+| **Peer-to-Peer Routing** | `peer-policy.json` enforces allowed routes, chain-depth limits (max 3), per-agent hourly budgets, cooldowns between same-pair escalations |
+| **ICE — Intrusion Countermeasures** | 4-level response (patrol → white → grey → black), content scanner for dangerous payloads, frequency anomaly detection, HMAC signatures on all escalations |
+| **Sprites** | `memory-sprite.ts` auto-generates `SESSION_SNAPSHOT.md` if missing or stale (>2h old), integrated into heartbeat |
+| **Moltbook Client** | Full API client for Moltbook social platform — post, vote, read feed, detect service requests — with outbound filter blocking PII/secrets |
+
+All extension files are in `example/` with production-identical code (absolute paths are server-specific; adapt to your environment).
+
+---
+
 ## Try It Yourself
 
-The `example/` directory contains a simplified, runnable reference implementation.
+The `example/` directory contains the actual production implementation, including all recent extensions.
 
 ```bash
 # Prerequisites: Bun runtime (https://bun.sh)
 cd example
 
-# Run the full demo
+# Run the minimal demo (no external dependencies)
 bash demo.sh
 
 # Or manually:
@@ -132,7 +149,10 @@ bash demo.sh
 bun run thalamus-mini.ts
 
 # Terminal 2: Send an escalation
-bun run escalation.ts boss worker1 "Analyze the login endpoint"
+bun run escalation-write.ts boss worker1 task "Analyze the login endpoint" answer 150
+
+# Heartbeat check (dry-run, no side effects)
+bun run heartbeat-check.ts --dry-run
 ```
 
 → [Example documentation](example/README.md)
